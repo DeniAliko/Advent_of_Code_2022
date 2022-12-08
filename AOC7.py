@@ -1,39 +1,46 @@
-import sys
-sys.setrecursionlimit(20954)
-
 file = open("AOC7.txt")
 inputFile = []
 linesInFile = file.readlines()
 for i in linesInFile:
     inputFile.append(format(i.strip()))
 
-def getSize(directory, file):
-    size = 0
-    for i in range(file.index(directory) + 2, len(file)):
-        if file[i][0] == "d":
-            size += getSize("$ cd " + file[i].replace("dir ", ""), file)
-        elif file[i][0] == "$":
-            break
+organizedList = []
+currentPath = ""
+accumulating = False
+currentPathSum = 0
+for i in inputFile:
+    if i[0] == "$" and accumulating:
+        organizedList.append([currentPath, currentPathSum, 0])
+        accumulating = False
+    if i[0:4] == "$ cd":
+        if i == "$ cd ..":
+            currentPathSum = 0
+            currentPath = currentPath[0:currentPath.rindex(">")]
         else:
-            size += int(file[i].split(" ")[0])
-    return size
+            currentPath += ">" + i.split(" ")[2]
+    if i[0:4] == "$ ls":
+        currentPathSum = 0
+        accumulating = True
+    if i.split(" ")[0].isnumeric():
+        currentPathSum += int(i.split(" ")[0])
+organizedList.append([currentPath, currentPathSum, 0])
+# print(organizedList)
 
-file = open("AOC7.txt")
-testCase = []
-linesInTest = file.readlines()
-for i in linesInTest:
-    testCase.append(format(i.strip()))
-
-sizes = []
-for line in testCase:
-    if line[0:4] == "$ cd":
-        # sizes.append(getSize(line, inputFile))
-        sizes.append(getSize(line, testCase))
-        print("The Function was called!")
+currentChildren = []
+for i in organizedList:
+    for j in organizedList:
+        if j[0].startswith(i[0]):
+            i[2] += j[1]
 
 part1Answer = 0
-for i in sizes:
-    if i <= 100000:
-        part1Answer += i
-
+for i in organizedList:
+    if i[2] <= 100000:
+        part1Answer += i[2]
 print(part1Answer)
+
+neededSpace = 30000000 - (70000000 - organizedList[0][2])
+deletable = []
+for i in organizedList:
+    if i[2] >= neededSpace:
+        deletable.append(i[2])
+print(min(deletable))
