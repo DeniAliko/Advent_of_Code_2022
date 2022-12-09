@@ -4,9 +4,6 @@ linesInFile = file.readlines()
 for i in linesInFile:
     inputFile.append(format(i.strip()))
 
-#for i in inputFile:
-#    print(i)
-
 organizedList = []
 cacheList = []
 for i in inputFile:

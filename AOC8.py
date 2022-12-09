@@ -6,13 +6,13 @@ for i in linesInFile:
 
 def visibilityCheck(x, y):
     score = 0
-    # from bottom to point of interest
+    # from top to point of interest
     for i in range(0, y):
         if int(inputFile[y][x]) <= int(inputFile[i][x]):
             score += 1
             break
     
-    # from POI to top
+    # from POI to bottom
     for i in range(y + 1, len(inputFile)):
         if int(inputFile[y][x]) <= int(inputFile[i][x]):
             score += 1
