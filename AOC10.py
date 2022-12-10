@@ -51,16 +51,13 @@ def drawPixel():
     if len(line) + 1 in spritePos:
         line += "#"
     else:
-        line += "."
+        line += " "
 
 for i in inputFile:
     if i == "noop":
         drawPixel()
-        cycle += 1
     else:
         drawPixel()
-        cycle += 1
         drawPixel()
         registry += int(i.split(" ")[1])
-        cycle += 1
 print(line)
