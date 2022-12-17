@@ -76,4 +76,44 @@ print(len(set(seen)))
 
 # part 2:
 
-toRemove = []
+# get all pairs of sensor ranges which are tangent:
+pairs = []
+for sensor in sensors:
+    for otherSensor in sensors:
+        if getDistance(sensor, otherSensor) == distances[sensors.index(sensor)] + distances[sensors.index(otherSensor)] + 2:
+            pairs.append([sensor, otherSensor])
+
+for pair in pairs:
+    duplicate = pair
+    duplicate.reverse()
+    if duplicate in pairs:
+        pairs.remove(duplicate)
+print(pairs)
+
+quadruple = []
+for pair in pairs:
+    quadruple.append(pair[0])
+    quadruple.append(pair[1])
+
+# x-delta = radius - deltaY
+def getPerimeter(tuple, radius):
+    perimeterPoints = []
+    for y in range(tuple[1] - radius - 1, tuple[1] + radius + 1):
+        perimeterPoints.append((tuple[0] - (radius - abs(tuple[1] - y)) + 1, y))
+        perimeterPoints.append((tuple[0] + (radius - abs(tuple[1] - y)) + 1, y))
+    return perimeterPoints
+
+minRadius = 1000000000
+for sensor in quadruple:
+    if distances[sensors.index(sensor)] < minRadius:
+        minRadius = distances[sensors.index(sensor)]
+
+testPerim = getPerimeter(sensors[distances.index(minRadius)], minRadius)
+part2Answer = 0
+for i in testPerim:
+    if getDistance(i, quadruple[0]) == distances[sensors.index(quadruple[0])] + 1:
+        if getDistance(i, quadruple[1]) == distances[sensors.index(quadruple[1])] + 1:
+            if getDistance(i, quadruple[2]) == distances[sensors.index(quadruple[2])] + 1:
+                if getDistance(i, quadruple[3]) == distances[sensors.index(quadruple[3])] + 1:
+                    print(i)
+                    print(i[0] * 4000000 + i[1])
