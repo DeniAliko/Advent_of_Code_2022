@@ -22,6 +22,7 @@ for i in range(0, len(organizedList)):
     cacheSum = 0
 
 a = max(calorieSums)
+print(a)
 calorieSums.remove(max(calorieSums))
 b = max(calorieSums)
 calorieSums.remove(max(calorieSums))

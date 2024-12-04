@@ -86,5 +86,5 @@ for i in range(0, len(inputFile)):
     for j in range(0, len(inputFile[i])):
         scenicScores.append([getScenicScore(i, j), (i, j)])
 
-print(scenicScores)
+# print(scenicScores)
 print(max(scenicScores))

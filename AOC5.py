@@ -29,15 +29,15 @@ for i in organizedList:
 #print(organizederList)
 
 # Starting Stacks:
-stack1 = ["D", "L", "V", "T", "M", "H", "F"]
-stack2 = ["H", "Q", "G", "J", "C", "T", "N", "P"]
-stack3 = ["R", "S", "D", "M", "P", "H"]
-stack4 = ["L", "B", "V", "F"]
-stack5 = ["N", "H", "G", "L", "Q"]
-stack6 = ["W", "B", "D", "G", "R", "M", "P"]
-stack7 = ["G", "M", "N", "R", "C", "H", "L", "Q"]
-stack8 = ["C", "L", "W"]
-stack9 = ["R", "D", "L", "Q", "J", "Z", "M", "T"]
+stack1 = ["F", "L", "M", "W"]
+stack2 = ["B", "Z", "V", "M", "F"]
+stack3 = ["H", "V", "R", "S", "L", "Q"]
+stack4 = ["F", "S", "V", "Q", "P", "M", "T", "J"]
+stack5 = ["L", "S", "W"]
+stack6 = ["F", "V", "P", "M", "R", "J", "W"]
+stack7 = ["J", "Q", "C", "P", "N", "R", "F"]
+stack8 = ["V", "H", "P", "S", "Z", "W", "R", "B"]
+stack9 = ["B", "M", "J", "C", "G", "H", "Z", "W"]
 stackList = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9]
 #print(stackList)
 def rearrange(x, y):
@@ -55,15 +55,15 @@ for item in stackList:
 print(part1Answer)
 
 # Part 2:
-stack1 = ["D", "L", "V", "T", "M", "H", "F"]
-stack2 = ["H", "Q", "G", "J", "C", "T", "N", "P"]
-stack3 = ["R", "S", "D", "M", "P", "H"]
-stack4 = ["L", "B", "V", "F"]
-stack5 = ["N", "H", "G", "L", "Q"]
-stack6 = ["W", "B", "D", "G", "R", "M", "P"]
-stack7 = ["G", "M", "N", "R", "C", "H", "L", "Q"]
-stack8 = ["C", "L", "W"]
-stack9 = ["R", "D", "L", "Q", "J", "Z", "M", "T"]
+stack1 = ["F", "L", "M", "W"]
+stack2 = ["B", "Z", "V", "M", "F"]
+stack3 = ["H", "V", "R", "S", "L", "Q"]
+stack4 = ["F", "S", "V", "Q", "P", "M", "T", "J"]
+stack5 = ["L", "S", "W"]
+stack6 = ["F", "V", "P", "M", "R", "J", "W"]
+stack7 = ["J", "Q", "C", "P", "N", "R", "F"]
+stack8 = ["V", "H", "P", "S", "Z", "W", "R", "B"]
+stack9 = ["B", "M", "J", "C", "G", "H", "Z", "W"]
 stackList = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9]
 #print(stackList)
 
